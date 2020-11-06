@@ -5,6 +5,7 @@ namespace Evercode\DependentSelectBundle\Form\Type;
 use Evercode\DependentSelectBundle\Form\DataTransformer\EntityToIdTransformer;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
@@ -41,6 +42,14 @@ class DependentFilteredEntityType extends AbstractType
             'choice_title_translation_part' => null,
             'callback_parameters' => [],
         ));
+    }
+
+    /**
+     * @return string
+     */
+    public function getParent()
+    {
+        return FormType::class;
     }
 
     /**
